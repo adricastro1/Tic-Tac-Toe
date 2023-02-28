@@ -27,11 +27,11 @@ const resetEl = document.querySelector('#btn')
 
 /*----- event listeners -----*/
 
-// squareEl.forEach(function (btn) {
-//     btn.addEventListener('click', resetGame)
-// })
+resetEl.addEventListener('click', resetGame)
 
 /*----- functions -----*/
+
+// X O clicking functions
 squareEl.forEach(function (evt) {
     evt.addEventListener('click', handleClick)
 
@@ -49,8 +49,7 @@ function handleClick(evt) {
         currentPlayer = "X"
     }
 }
-resetEl.addEventListener('click', resetGame)
-
+//  reset board functions
 function resetGame(){
     squareEl.forEach(square)
 }
