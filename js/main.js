@@ -1,4 +1,7 @@
-// 1) Define required constants
+
+
+
+/*----- constants -----*/
 const colors = {
     'player1': null,
     'player-1': null,
@@ -14,25 +17,29 @@ const winningCombos = [
     [0, 4, 8],
     [2, 4, 6]
 ]
-// console.log(winningCombos[1])
 
-
-//2) Define required variables used to track the state of the game
-
+/*----- app's state (variables) -----*/
 let currentPlayer = 'X'
 
-// 3) Store elements on the page that will be accessed in code more than once in variables to make code more concise, readable and performant.
+/*----- cached element references -----*/
 const squareEl = document.querySelectorAll('.square')
+const resetEl = document.querySelector('#btn')
 
-// 4) Upon loading the app should:
-//   4.1) Initialize the state variables
-//   4.2) Render those values to the page
-//   4.3) Wait for the user to click a square
+/*----- event listeners -----*/
 
+// squareEl.forEach(function (btn) {
+//     btn.addEventListener('click', resetGame)
+// })
+
+/*----- functions -----*/
+squareEl.forEach(function (evt) {
+    evt.addEventListener('click', handleClick)
+
+})
 
 function handleClick(evt) {
     evt.target.content
-    console.log(evt.target.id )
+    console.log(evt.target.id)
     if (currentPlayer === "X" && evt.target.innerHTML === "") {
         evt.target.innerHTML = "X"
         currentPlayer = "O"
@@ -40,13 +47,17 @@ function handleClick(evt) {
     } else if (currentPlayer = "O" && evt.target.innerHTML === "") {
         evt.target.innerHTML = "O"
         currentPlayer = "X"
-    } 
+    }
+}
+resetEl.addEventListener('click', resetGame)
+
+function resetGame(){
+    squareEl.forEach(square)
 }
 
-// 5) Handle a player clicking a square
-squareEl.forEach(function (evt) {
-    evt.addEventListener('click', handleClick)
+function square(square) {
+    square.innerHTML = ""
+    console.log("reset")
+}
 
-})
 
-// 6) Handle a player clicking the replay button
