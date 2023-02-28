@@ -13,6 +13,7 @@ h1 {
     /* vmin - calculates the percentage of the shortest side of your viewport */
     flex-wrap: wrap;
     gap: 1vmin;
+    margin: auto;
 }
 
 .square {
@@ -20,3 +21,15 @@ h1 {
     height: 25vmin;
     border: 1px solid lightblue
 }
+
+button {
+    margin: 20px;
+    background-color: #1069bc;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    /* display: inline-block; */
+    font-size: 16px;
+  }
