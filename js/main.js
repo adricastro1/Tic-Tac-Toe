@@ -1,12 +1,12 @@
-
-
-
 /*----- constants -----*/
+// 1.1
 const colors = {
-    'player1': null,
-    'player-1': null,
+    'null': 'white',
+    'player1': 'pink',
+    'player-1': 'red',
 }
-
+console.log(colors["player-1"])
+// 1.2
 const winningCombos = [
     [0, 1, 2],
     [3, 4, 5],
@@ -19,23 +19,25 @@ const winningCombos = [
 ]
 
 /*----- app's state (variables) -----*/
-let currentPlayer = 'X'
+// 2.
+let board = [null, null, null, null, null, null, null, null, null]
+let winner = null;
+let currentPlayer = "X"
 
 /*----- cached element references -----*/
 const squareEl = document.querySelectorAll('.square')
 const resetEl = document.querySelector('#btn')
 
 /*----- event listeners -----*/
+squareEl.forEach(function (evt) {
+    evt.addEventListener('click', handleClick)
+
+})
 
 resetEl.addEventListener('click', resetGame)
 
 /*----- functions -----*/
 
-// X O clicking functions
-squareEl.forEach(function (evt) {
-    evt.addEventListener('click', handleClick)
-
-})
 
 function handleClick(evt) {
     evt.target.content
@@ -43,20 +45,20 @@ function handleClick(evt) {
     if (currentPlayer === "X" && evt.target.innerHTML === "") {
         evt.target.innerHTML = "X"
         currentPlayer = "O"
-        console.log(currentPlayer)
     } else if (currentPlayer = "O" && evt.target.innerHTML === "") {
         evt.target.innerHTML = "O"
         currentPlayer = "X"
     }
 }
-//  reset board functions
+
+
+
+// reset game function
 function resetGame(){
     squareEl.forEach(square)
 }
 
-function square(square) {
-    square.innerHTML = ""
+function square(evt) {
+    evt.innerHTML = ""
     console.log("reset")
 }
-
-
